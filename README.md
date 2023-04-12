@@ -39,9 +39,9 @@ Run this command in the server direcory.
 Before running this command, remove the client references from the index.js file in the server directory.
 Note: If you don't, Node will serve the client build if exists.
 Important note: You will need to create a .env file in the server directory with the following values:
-MONGO_URL="Your Mongo database URL"
-PORT=8080
-TOKEN_SECRET="A long String to be used for encryption"
+[MONGO_URL=Your Mongo database URL]
+[PORT=8080]
+[TOKEN_SECRET=A long String to be used for encryption]
 If you don't the app will fail to start.
 
 ### `npm run start`
