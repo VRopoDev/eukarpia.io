@@ -1,70 +1,72 @@
-# Getting Started with Create React App
+# Welcome to Eukarpia
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Eukarpia is a web-based agriculture management system developed with the MERN stack.
+This porject created for Birkbeck University of London.
 
-## Available Scripts
+## Running Eukarpia
 
-In the project directory, you can run:
+You can run Eukarpia with the 2 following ways:
 
-### `npm start`
+### Docker container:
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+#### `docker-compose up`
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+Run the command in the parent directory for docker to build and start the Eukarpia container.
+Note: Docker needs to be installed on your machine to run this command.
+Open [http://localhost:3000](http://localhost:3000) to view Eukarpia in your browser.
 
-### `npm test`
+### Node:
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+#### `npm run start`
+
+Run this command in the server direcory.
+
+This will start the Node application of Eukarpia and serve the React build.
+Important note: You will need to create a .env file in the server directory with the following values:
+MONGO_URL="Your Mongo database URL"
+PORT=8080
+TOKEN_SECRET="A long String to be used for encryption"
+Note: build folder needs to exists in the client directory. (See below for building the Eukarpia client.)
+Open [http://localhost:8080](http://localhost:8080) to view Eukarpia in your browser.
+
+## Developing Eukarpia
+
+To customise Eukarpia and start developing follow the steps below:
+
+### `npm run dev`
+
+Run this command in the server direcory.
+Before running this command, remove the client references from the index.js file in the server directory.
+Note: If you don't, Node will serve the client build if exists.
+Important note: You will need to create a .env file in the server directory with the following values:
+MONGO_URL="Your Mongo database URL"
+PORT=8080
+TOKEN_SECRET="A long String to be used for encryption"
+If you don't the app will fail to start.
+
+### `npm run start`
+
+After starting the Node application of Eukarpia, run this command in the client direcotry to start the React app.
+Open [http://localhost:3000](http://localhost:3000) to view Eukarpia in your browser.
+Note: Eukarpia's React app will communicate with the Node application on port 8080.
+Important note: You will need to create a .env.local file in the client directory with the following value:
+[REACT_APP_BASE_URL=http://localhost:8080/api]
+
+## Deployment
+
+To deploy your Eukarpia insantce with your customisations follow the steps below:
 
 ### `npm run build`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Run this command in the client directory to make a production build of your changes in the React app of Eukarpia, if any.
+Deploy the entire eukarpia project and make sure to specify the required environment variables.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### `npm run start`
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+Run this command from the server you deployed, in the server directory. Eukarpia can be accessed in the port you specified in the enviroment variables.
+Alternatively, build the docker image by specifing your values in the docker-compose.yml file, and deploy the container.
+Eukarpia will run in 3000 port if not changed in the docker settings.
 
 ## Learn More
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+You can learn more in the [Eukarpia documentation](https://bump.sh/vropodev/doc/eukarpia).

@@ -55,7 +55,7 @@ app.get("*", (req, res) => {
 });
 
 /* MONGOOSE SETUP */
-const PORT = process.env.PORT || 9000;
+const PORT = process.env.PORT || 8080;
 // Connect to database
 mongoose
   .connect(process.env.MONGO_URL, {
