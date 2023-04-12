@@ -3,6 +3,8 @@
 Eukarpia is a web-based agriculture management system developed with the MERN stack.
 This porject created for Birkbeck University of London.
 
+Note: Before making any of the following make sure to run `npm install` in server and client directories.
+
 ## Running Eukarpia
 
 You can run Eukarpia with the 2 following ways:

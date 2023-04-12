@@ -8,6 +8,7 @@ import Device from "../models/Device.js";
 import IoT from "../models/Iot.js";
 import Command from "../models/Command.js";
 import Notification from "../models/Notification.js";
+import { scheduler } from "../startup/scheduler.js";
 
 /**
  * (READ OPERATION)
@@ -54,6 +55,11 @@ export const updateOrg = async (req, res) => {
       org,
       req.body
     );
+    // Start a cron job for weather data if api & key
+    const { weatherapi, apikey } = req.body;
+    if (weatherapi && apikey) {
+      await scheduler(org, weatherapi, apikey);
+    }
 
     res.status(200).json({ success: true, updatedOrganisation });
   } catch (err) {

@@ -8,7 +8,6 @@ import morgan from "morgan";
 import path from "path";
 import { dirname } from "path";
 import { fileURLToPath } from "url";
-import { scheduler } from "./startup/scheduler.js";
 import { createUDPServer } from "./startup/udpServer.js";
 
 //import adminRoute from "./routes/adminRoute.js";
@@ -63,10 +62,11 @@ mongoose
     useUnifiedTopology: true,
   })
   .then(() => {
+    console.log("Connected to database");
     // Start the server
     app.listen(PORT, () => console.log(`Server is running on port: ${PORT}`));
-    // Create any cron tasks in the scheduler
-    if (process.env.ORGID) scheduler();
+    // Put any cron tasks here to start with application restarts
+    // Create a UDP server for devices in the same network.
     const udpServer = createUDPServer();
   })
   .catch((error) => {
