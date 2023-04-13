@@ -11,11 +11,11 @@ You can run Eukarpia with the 2 following ways:
 
 ### Docker container:
 
-#### `docker-compose up`
+#### `docker-compose up --build`
 
 Run the command in the parent directory for docker to build and start the Eukarpia container.
 Note: Docker needs to be installed on your machine to run this command.
-Open [http://localhost:3000](http://localhost:3000) to view Eukarpia in your browser.
+Open [http://localhost:8080](http://localhost:8080) to view Eukarpia in your browser.
 
 ### Node:
 

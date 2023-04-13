@@ -1,0 +1,29 @@
+version: "3.9"
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: app
+    restart: on-failure:10
+    ports:
+      - 8080:8080
+    environment:
+      PORT: 8080
+      MONGO_URL: mongodb://readAndWriteAnyUser:paaSW0rD1@mongo:27017/eukarpia
+      TOKEN_SECRET: C000lDbeAVErYStron32242362466723998633gjsbdfhsbceueDWWD115558877gSe44422333551creTTT231235
+    depends_on:
+      - mongo
+
+  mongo:
+    image: mongo:latest
+    container_name: mongo
+    restart: on-failure:10
+    environment:
+      MONGO_INITDB_DATABASE: eukarpia
+      MONGO_INITDB_ROOT_USERNAME: readAndWriteAnyUser
+      MONGO_INITDB_ROOT_PASSWORD: paaSW0rD1
+    ports:
+      - 27017:27017
+    volumes:
+      - ./mongo-init.js:/docker-entrypoint-initdb.d/mongo-init.js:ro
