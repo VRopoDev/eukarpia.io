@@ -1,5 +1,5 @@
 # Ignore everything except the docs folder
 *
-!docs/
-!docs/**
-!404.html
+!*.html
+!public
+!docco.css
