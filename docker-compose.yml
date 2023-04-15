@@ -8,6 +8,7 @@ services:
     restart: on-failure:10
     ports:
       - 8080:8080
+      - "1212:1212/udp"
     environment:
       PORT: 8080
       MONGO_URL: mongodb://readAndWriteAnyUser:paaSW0rD1@mongo:27017/eukarpia
@@ -26,4 +27,4 @@ services:
     ports:
       - 27017:27017
     volumes:
-      - ./mongo-init.js:/docker-entrypoint-initdb.d/mongo-init.js:ro
+      - ./database/mongo-init.js:/docker-entrypoint-initdb.d/mongo-init.js:ro
