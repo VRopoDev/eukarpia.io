@@ -71,4 +71,4 @@ Eukarpia will run in 3000 port if not changed in the docker settings.
 
 ## Learn More
 
-You can learn more in the [Eukarpia documentation](https://bump.sh/vropodev/doc/eukarpia).
+You can learn more in the [Eukarpia documentation](https://vropodev.github.io/eukarpia.io/).
