@@ -223,7 +223,7 @@ const Sidebar = ({
                 fontSize="0.8rem"
                 sx={{ color: theme.palette.secondary[200] }}
               >
-                {process.env.REACT_APP_TAG}
+                Version 1.0.0
               </Typography>
             </Box>
           </Box>

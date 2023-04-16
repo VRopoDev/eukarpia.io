@@ -51,8 +51,7 @@ If you don't the app will fail to start.
 After starting the Node application of Eukarpia, run this command in the client direcotry to start the React app.
 Open [http://localhost:3000](http://localhost:3000) to view Eukarpia in your browser.
 Note: Eukarpia's React app will communicate with the Node application on port 8080.
-Important note: You will need to create a .env.local file in the client directory with the following value:
-[REACT_APP_BASE_URL=http://localhost:8080/api]
+Important note: If you change the server port you will need to change the base URL in the state/api.js of the client.
 
 ## Deployment
 
